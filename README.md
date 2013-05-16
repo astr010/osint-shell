@@ -1,0 +1,32 @@
+# INSTALLATION
+
+    $ pip install beautifulsoup4
+    $ pip install requests
+
+## On debian (or other)
+  
+    $ pip install python-lxml
+
+# USAGE
+
+    $ ./osint-shell
+
+## HTTP Module
+
+    $ http request_get http://www.lemonde.fr
+  
+### Retreive HTTP information
+
+    $ http response_status_code
+    $ http response_encoding
+    $ http response_headers
+
+### Extract HTML information
+
+    $ http response_extract_page_title
+    $ http response_extract_rss_feeds
+    $ http response_extract_titles # H1 to H6
+    $ http response_extract_anchors
+    $ http response_extract_hosts
+    $ http response_xpath_query //div[@class='pages']/ul/li/a/text()
+

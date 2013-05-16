@@ -116,7 +116,7 @@ class HTTPModule(Module):
         self.current_response = HTTPResponse(' '.join(args))
         self.shell.print_line(self.current_response.code)
 
-    def do_response_headers(self):
+    def do_response_headers(self, args):
         for header in self.current_response.headers:
             self.shell.print_line(
                     '{k}: {v}'.format(k=string.ljust(header, 25),
