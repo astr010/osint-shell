@@ -5,7 +5,7 @@
 
 ## On debian (or other)
   
-    $ pip install python-lxml
+    $ apt-get install python-lxml
 
 # USAGE
 
