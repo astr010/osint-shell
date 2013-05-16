@@ -1,4 +1,4 @@
-# INSTALLATION
+# Installation
 
     $ pip install beautifulsoup4
     $ pip install requests
@@ -7,7 +7,7 @@
   
     $ apt-get install python-lxml
 
-# USAGE
+# Usage
 
     $ ./osint-shell
 
