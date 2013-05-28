@@ -21,7 +21,7 @@ __Trick__: You can use <TAB> completion and CTRL-R history :)
 
     $ http request_get http://www.lemonde.fr
   
-### Retreive HTTP information
+### Retrieve HTTP information
 
     $ http response_status_code
     $ http response_encoding
