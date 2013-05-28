@@ -3,6 +3,8 @@
     $ pip install beautifulsoup4
     $ pip install requests
 
+    $ python setup.py install
+
 ## On debian (or other)
   
     $ apt-get install python-lxml
@@ -11,7 +13,7 @@
 
 __Trick__: You can use <TAB> completion and CTRL-R history :)
 
-    $ ./osint-shell
+    $ osint-shell
 
 ## HTTP Module
 
