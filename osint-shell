@@ -198,19 +198,23 @@ class GoogleModule(Module):
         query = ' '.join(args)
         url_list = []
         self.shell.print_line('search: %s' % query)
-        html = requests.get(self.GOOGLE_SEARCH_URL, params={
-                        'q': query,'oq': query, 'hl': 'fr'}).content
-        soup = BeautifulSoup(html)
-        for a in soup.find_all('a'):
-            href = a.get('href', '/')
-            url = urlparse.urljoin(self.GOOGLE_SEARCH_URL, href)
-            parsed_url = urlparse.urlparse(url)
-            parsed_query = urlparse.parse_qs(parsed_url.query)
-            if parsed_url.path == '/url':
-                founded_url = parsed_query['q'][0]
-                parsed_url = urlparse.urlparse(founded_url)
-                if parsed_url.hostname != 'webcache.googleusercontent.com':
-                    url_list.append(founded_url)
+
+        for i in (0, 10, 20):
+            print 'Retreive results for page: %s' % i
+            html = requests.get(self.GOOGLE_SEARCH_URL, params={
+                       'q': query,'oq': query, 'hl': 'fr', 'start': i}).content
+            soup = BeautifulSoup(html)
+            for a in soup.find_all('a'):
+                href = a.get('href', '/')
+                url = urlparse.urljoin(self.GOOGLE_SEARCH_URL, href)
+                parsed_url = urlparse.urlparse(url)
+                parsed_query = urlparse.parse_qs(parsed_url.query)
+                if parsed_url.path == '/url':
+                    founded_url = parsed_query['q'][0]
+                    parsed_url = urlparse.urlparse(founded_url)
+                    if parsed_url.hostname != 'webcache.googleusercontent.com':
+                        url_list.append(founded_url)
+
         for url in set(url_list):
             self.shell.print_line(url)
 
